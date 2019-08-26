@@ -111,11 +111,11 @@
 
 
 <ul>
-    <li><div class="all active">All article<small>(15)</small></div></li>
+    <li><div class="all active">All article<small>(16)</small></div></li>
     
         
             
-            <li><div data-rel="coding">coding<small>(12)</small></div>
+            <li><div data-rel="algorithm">algorithm<small>(3)</small></div>
                 
             </li>
             
@@ -123,7 +123,7 @@
     
         
             
-            <li><div data-rel="algorithm">algorithm<small>(2)</small></div>
+            <li><div data-rel="coding">coding<small>(12)</small></div>
                 
             </li>
             
@@ -139,8 +139,8 @@
     </div>
     <div><a  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="15">
-<input type="hidden" id="yelog_site_word_count" value="73">
+<input type="hidden" id="yelog_site_posts_number" value="16">
+<input type="hidden" id="yelog_site_word_count" value="174">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -174,15 +174,15 @@
     <div class="tags-list">
     
     <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">baekjoon</a>
+    </li>
+    
+    <li class="article-tag-list-item">
         <a href="javascript:" class="color5">framework</a>
     </li>
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color3">aiohttp</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">baekjoon</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -247,19 +247,19 @@
     
     <nav id="title-list-nav">
         
+        <a  class="algorithm "
+           href="/2019/08/25/baekjun1330/"
+           data-tag="baekjoon"
+           data-author="" >
+            <span class="post-title" title="백준 알고리즘 문제 1330번 (2단계 if문-1)">백준 알고리즘 문제 1330번 (2단계 if문-1)</span>
+            <span class="post-date" title="2019-08-25 18:00:00">2019/08/25</span>
+        </a>
+        
         <a  class="coding "
            href="/2019/08/25/aiohttp1/"
            data-tag="framework,aiohttp"
            data-author="" >
             <span class="post-title" title="aiohttp1">aiohttp1</span>
-            <span class="post-date" title="2019-08-25 18:00:00">2019/08/25</span>
-        </a>
-        
-        <a  class="algorithm "
-           href="/2019/08/25/baeck1/"
-           data-tag="baekjoon"
-           data-author="" >
-            <span class="post-title" title="백준 1일차">백준 1일차</span>
             <span class="post-date" title="2019-08-25 18:00:00">2019/08/25</span>
         </a>
         
@@ -276,6 +276,14 @@
            data-tag="language,c"
            data-author="" >
             <span class="post-title" title="c">c</span>
+            <span class="post-date" title="2019-08-25 18:00:00">2019/08/25</span>
+        </a>
+        
+        <a  class="algorithm "
+           href="/2019/08/25/baeck1/"
+           data-tag="baekjoon"
+           data-author="" >
+            <span class="post-title" title="백준 1일차">백준 1일차</span>
             <span class="post-date" title="2019-08-25 18:00:00">2019/08/25</span>
         </a>
         
@@ -311,20 +319,20 @@
             <span class="post-date" title="2019-08-25 18:00:00">2019/08/25</span>
         </a>
         
-        <a  class="coding "
-           href="/2019/08/25/flask1/"
-           data-tag="framework,flask"
-           data-author="" >
-            <span class="post-title" title="flask1">flask1</span>
-            <span class="post-date" title="2019-08-25 18:00:00">2019/08/25</span>
-        </a>
-        
         <a  class=""
            href="/2019/08/25/hello-world/"
            data-tag=""
            data-author="" >
             <span class="post-title" title="Welcome to Tech Diary by JK drumgrammer">Welcome to Tech Diary by JK drumgrammer</span>
             <span class="post-date" title="2019-08-25 22:00:01">2019/08/25</span>
+        </a>
+        
+        <a  class="coding "
+           href="/2019/08/25/flask1/"
+           data-tag="framework,flask"
+           data-author="" >
+            <span class="post-title" title="flask1">flask1</span>
+            <span class="post-date" title="2019-08-25 18:00:00">2019/08/25</span>
         </a>
         
         <a  class="coding "
@@ -355,7 +363,7 @@
            href="/2019/08/25/markdawn1/"
            data-tag="language,markdown"
            data-author="" >
-            <span class="post-title" title="markdawn1">markdawn1</span>
+            <span class="post-title" title="markdawn 1">markdawn 1</span>
             <span class="post-date" title="2019-08-25 18:00:00">2019/08/25</span>
         </a>
         
@@ -521,7 +529,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#framework','#aiohttp','#baekjoon','#language','#c_sharp','#c','#codekata','#cpp','#css','#django','#flask','#html','#javascript','#python','#markdown','#tornado',],
+            'data': ['#baekjoon','#framework','#aiohttp','#language','#c_sharp','#c','#codekata','#cpp','#css','#django','#flask','#html','#javascript','#python','#markdown','#tornado',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');

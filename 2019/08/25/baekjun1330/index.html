@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>django1 | Tech-Diary</title>
-  <meta name="keywords" content=" framework , django ">
-  <meta name="description" content="django1 | Tech-Diary">
+  <title>백준 알고리즘 문제 1330번 (2단계 if문-1) | Tech-Diary</title>
+  <meta name="keywords" content=" baekjoon ">
+  <meta name="description" content="백준 알고리즘 문제 1330번 (2단계 if문-1) | Tech-Diary">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
 <meta property="og:type" content="article">
@@ -387,9 +387,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-django1" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-baekjun1330" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">django1</h1>
+        <h1 class="article-title">백준 알고리즘 문제 1330번 (2단계 if문-1)</h1>
     
     <div class="article-meta">
         
@@ -397,28 +397,26 @@
         
         <span class="book">
             
-                <a href="javascript:" data-rel="coding">coding</a>
+                <a href="javascript:" data-rel="algorithm">algorithm</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a href="javascript:" class="color5">framework</a>
-            
-            <a href="javascript:" class="color2">django</a>
+            <a href="javascript:" class="color4">baekjoon</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        Created at:  <time class="date" title='更新时间: 2019-08-26 01:02:23'>2019-08-25 18:00</time>
+        Created at:  <time class="date" title='更新时间: 2019-08-26 10:13:26'>2019-08-25 18:00</time>
         
     </div>
     <div class="article-meta">
         
-        <span>글자 수:  0</span>
+        <span>글자 수:  101</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -437,7 +435,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#문제-카테고리"><span class="toc-text">문제 카테고리</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#문제-요구-사항"><span class="toc-text">문제 요구 사항</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#참조-개념"><span class="toc-text">참조 개념</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#split"><span class="toc-text">split</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data-type"><span class="toc-text">data type</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#풀이"><span class="toc-text">풀이</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#방법-1-함수화"><span class="toc-text">방법 1  (함수화)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#방법-2-mapping-간결화"><span class="toc-text">방법 2 (mapping, 간결화)</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -452,7 +450,27 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="문제-카테고리"><a href="#문제-카테고리" class="headerlink" title="문제 카테고리"></a>문제 카테고리</h2><ul>
+<li>백준 알고리즘</li>
+<li>단계별 문제<ul>
+<li>2단계 if 문 - 1/5</li>
+</ul>
+</li>
+</ul>
+<h2 id="문제-요구-사항"><a href="#문제-요구-사항" class="headerlink" title="문제 요구 사항"></a>문제 요구 사항</h2><p><img src="https://i.loli.net/2019/08/26/m94SQEspW5VyYeh.png" alt="bj1330.png"><br><br></p>
+<p><a href="https://www.acmicpc.net/problem/1330" target="_blank" rel="noopener">백준 1330번 원문</a></p>
+<h2 id="참조-개념"><a href="#참조-개념" class="headerlink" title="참조 개념"></a>참조 개념</h2><h3 id="split"><a href="#split" class="headerlink" title="split"></a>split</h3><ul>
+<li>참조 링크<br><a href="https://docs.python.org/3/library/stdtypes.html?highlight=split#str.split" target="_blank" rel="noopener">docs.python.org</a></li>
+</ul>
+<h3 id="data-type"><a href="#data-type" class="headerlink" title="data type"></a>data type</h3><p>example:  int()  /  float()  /  string()  /  dict()  /  …</p>
+<ul>
+<li>참조링크<br><a href="https://wikidocs.net/11" target="_blank" rel="noopener">점프 투 파이썬 - 자료형</a><br><a href="https://alegruz.imweb.me/blog/?idx=244919&bmode=view" target="_blank" rel="noopener">응용 예제 - 자료형</a></li>
+</ul>
+<h2 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h2><h3 id="방법-1-함수화"><a href="#방법-1-함수화" class="headerlink" title="방법 1  (함수화)"></a>방법 1  (함수화)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compare_two_num</span><span class="params">(str_two_num)</span>:</span></span><br><span class="line">    list_two_num = str_two_num.split(<span class="string">" "</span>)</span><br><span class="line">    a = int(list_two_num[<span class="number">0</span>])</span><br><span class="line">    b = int(list_two_num[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">if</span> a &gt; b:</span><br><span class="line">        result = <span class="string">"&gt;"</span></span><br><span class="line">    <span class="keyword">elif</span> a &lt; b:</span><br><span class="line">        result = <span class="string">"&lt;"</span></span><br><span class="line">    <span class="keyword">elif</span> a == b:</span><br><span class="line">        result = <span class="string">"=="</span></span><br><span class="line">    print(result)</span><br><span class="line"></span><br><span class="line">compare_two_num(input())</span><br></pre></td></tr></table></figure>
+
+<h3 id="방법-2-mapping-간결화"><a href="#방법-2-mapping-간결화" class="headerlink" title="방법 2 (mapping, 간결화)"></a>방법 2 (mapping, 간결화)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">a, b  = list(map(int, input().split(<span class="string">' '</span>)))</span><br><span class="line"><span class="keyword">if</span>(a &gt; b):</span><br><span class="line">    print(<span class="string">'&gt;'</span>)</span><br><span class="line"><span class="keyword">elif</span>(a &lt; b):</span><br><span class="line">    print(<span class="string">'&lt;'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'=='</span>)</span><br></pre></td></tr></table></figure>
+
+
       
        <hr><span style="font-style: italic;color: gray;"> Learn, Share, Growth! </span>
     </div>
@@ -465,12 +483,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">Title:</span>django1</p>
-    <p><span class="copy-title">word count:</span><span class="post-count">0</span></p>
+    <p><span class="copy-title">Title:</span>백준 알고리즘 문제 1330번 (2단계 if문-1)</p>
+    <p><span class="copy-title">word count:</span><span class="post-count">101</span></p>
     <p><span class="copy-title">Author:</span><a href="javascript:void(0)" title="Drumgrammer">Drumgrammer</a></p>
     <p><span class="copy-title">Created at:</span>2019-08-25, 18:00:00</p>
-    <p><span class="copy-title">Updated at:</span>2019-08-26, 01:02:23</p>
-    <span class="copy-title">Original link:</span><a class="post-url" href="/2019/08/25/django1/" title="django1">https://drum-grammer.github.io/2019/08/25/django1/</a>
+    <p><span class="copy-title">Updated at:</span>2019-08-26, 10:13:26</p>
+    <span class="copy-title">Original link:</span><a class="post-url" href="/2019/08/25/baekjun1330/" title="백준 알고리즘 문제 1330번 (2단계 if문-1)">https://drum-grammer.github.io/2019/08/25/baekjun1330/</a>
     <p>
         <span class="copy-title">Copyright:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)"</a> 转载请保留原文链接。
     </p>
