@@ -1,0 +1,156 @@
+<!DOCTYPE html><html lang="ko"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>데이터 베이스 기초 | Tech-Diary</title><link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/css/highlights/dracula.css"><link rel="canonical" href="https://drum-grammer.github.io/2019/08/26/database1/">
+<meta name="description" content="Database 기초 이해 및 설치 데이터를 저장 및 보존 하는 시스템 Application에서는 데이터가 메모리 상에서 존재한다. 그리고 메모리에 존재하는 데이터는 보존이 되지 않는다. 해당 애플리케이션이 종료하면 메모리에 있던 데이터들은 다시…">
+<meta name="keywords" content="database">
+<meta property="og:type" content="article">
+<meta property="og:title" content="데이터 베이스 기초">
+<meta property="og:url" content="https://drum-grammer.github.io/2019/08/26/database1/">
+<meta property="og:site_name" content="Tech-Diary">
+<meta property="og:description" content="Database 기초 이해 및 설치 데이터를 저장 및 보존 하는 시스템 Application에서는 데이터가 메모리 상에서 존재한다. 그리고 메모리에 존재하는 데이터는 보존이 되지 않는다. 해당 애플리케이션이 종료하면 메모리에 있던 데이터들은 다시…">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https://stackoverflow.com/c/wecode/images/s/86740c92-ae03-4d22-86ca-66d00d36dc6f.png">
+<meta property="og:updated_time" content="2019-10-02T06:21:33.112Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="데이터 베이스 기초">
+<meta name="twitter:description" content="Database 기초 이해 및 설치 데이터를 저장 및 보존 하는 시스템 Application에서는 데이터가 메모리 상에서 존재한다. 그리고 메모리에 존재하는 데이터는 보존이 되지 않는다. 해당 애플리케이션이 종료하면 메모리에 있던 데이터들은 다시…">
+<meta name="twitter:image" content="https://stackoverflow.com/c/wecode/images/s/86740c92-ae03-4d22-86ca-66d00d36dc6f.png"><meta property="article:author" content="Drumgrammer"><meta property="twitter:label1" content="Published at"><meta property="twitter:data1" content="2019-08-26 18:00:00"><meta property="twitter:label2" content="Written by"><meta property="twitter:data2" content="Drumgrammer"><link rel="icon" href="/images/logo.png"><script>(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-147345580-1', 'auto');
+ga('send', 'pageview');</script></head><body itemscope itemtype="https://schema.org/WebPage"><nav class="menu" id="menu"><div class="menu-inner"><div class="menu__left-area"><div class="menu__item"><a class="menu__item__link menu__item__link--brand" href="/" title="Home" rel="home"><img class="menu__item__link--brand__image" src="/images/logo.png" alt="Tech-Diary"><span class="menu__item__link--brand__label">Tech-Diary</span></a></div></div><div class="menu__right-area"><div class="menu__item"><a class="menu__item__link" href="/">Home</a></div><div class="menu__item"><a class="menu__item__link" href="/about">About</a></div><div class="menu__item"><a class="menu__item__link" href="/images/jk_resume_1908.png">Resume</a></div></div></div></nav><div class="page-background"></div><div class="content-container"><div class="content-outer"><div class="content-inner" itemscope itemtype="https://schema.org/Blog"><article class="article" id="article" itemscope itemtype="https://schema.org/BlogPosting"><h1 class="article__title" itemprop="headline">데이터 베이스 기초</h1><div class="article__meta"><time class="article__meta__time" datetime="2019-08-26T09:00:00.000Z" itemprop="datePublished">2019-08-26 18:00:00</time><div class="article__meta__categories"><a class="article__meta__categories__item" href="/categories/6-DATABASE/">6. DATABASE</a><span class="article__meta__categories__separator">></span><a class="article__meta__categories__item" href="/categories/6-DATABASE/기본-계념/">기본 계념</a></div></div><hr><div class="article__contents"><h1 id="Database-기초-이해-및-설치"><a href="#Database-기초-이해-및-설치" class="headerlink" title="Database 기초 이해 및 설치"></a>Database 기초 이해 및 설치</h1><ul>
+<li>데이터를 저장 및 보존 하는 시스템</li>
+<li>Application에서는 데이터가 메모리 상에서 존재한다. 그리고 메모리에 존재하는 데이터는 보존이 되지 않는다. 해당 애플리케이션이 종료하면 메모리에 있던 데이터들은 다시 읽어 들일 수 없다. </li>
+<li>그럼으로 데이터를 장기 기간동안 저장 및 보존 하기 위해서 데이터 베이스를 사용하는 것이다.</li>
+<li>일반적으로 database에는 크게 관계형 데이터베이스(RDBMS)와 “NoSQL”로 명칭되는 비관계형(Non-relational) database가 있다.</li>
+</ul>
+<h2 id="관계형-데이터베이스-RDBMS-Relational-DataBase-Management-System"><a href="#관계형-데이터베이스-RDBMS-Relational-DataBase-Management-System" class="headerlink" title="관계형 데이터베이스(RDBMS, Relational DataBase Management System)"></a>관계형 데이터베이스(RDBMS, Relational DataBase Management System)</h2><ul>
+<li>이름 그대로, 관계형 데이터 모델에 기초를 둔 데이터베이스 시스템을 말한다.</li>
+<li>관계형 데이터란 데이터를 서로 상호관련성을 가진 형태로 표현한 데이터를 말한다. <ul>
+<li>모든 데이터들은 2차원 테이블(table)들로 표현 된다.</li>
+<li>각각의 테이블은 컬럼(column)과 row(로우)로 구성된다. <ul>
+<li>컬럼은 테이블의 각 항목을 말한다. 행으로 생각하면 된다.</li>
+<li>로우는 각 항목들의 실제 값들을 이야기 한다.  열로 생각하면 된다. </li>
+<li>각 로우는 저만의 고유 키(Primary Key)가 있다. 주로 이 primary key를 통해서 해당 로우를 찾거나 인용(reference)하게 된다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>각각의 테이블들은 서로 상호관련성을 가지고 서로 연결될 수 있다. <ul>
+<li>테이블끼리의 연결에는 크게 3가지 종류가 있다.<ul>
+<li>one to one</li>
+<li>one to many</li>
+<li>many to many</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>대표적인 관계형 데이터베이스에는 MySQL과 PostgreSQL(줄여서 Postgres)가 있다.</li>
+</ul>
+<h3 id="One-To-One"><a href="#One-To-One" class="headerlink" title="One To One"></a>One To One</h3><ul>
+<li>테이블 A의 로우와 테이블 B의 로우가 정확히 일대일 매칭이 되는 관계를 one to one 관계라고 한다. </li>
+</ul>
+<p><a href="https://stackoverflow.com/c/wecode/images/s/86740c92-ae03-4d22-86ca-66d00d36dc6f.png" target="_blank" rel="noopener"><img src="https://stackoverflow.com/c/wecode/images/s/86740c92-ae03-4d22-86ca-66d00d36dc6f.png" alt="enter image description here"></a><br><em>users and user_profiles - one to one</em></p>
+<h3 id="One-To-Many"><a href="#One-To-Many" class="headerlink" title="One To Many"></a>One To Many</h3><ul>
+<li>테이블 A의 로우가 테이블 B의 여러 로우와 연결이 되는 관계를 one to many 관계라고 함.</li>
+</ul>
+<p><a href="https://stackoverflow.com/c/wecode/images/s/f29f0193-baa9-4009-98b6-0f0cc30e844d.png" target="_blank" rel="noopener"><img src="https://stackoverflow.com/c/wecode/images/s/f29f0193-baa9-4009-98b6-0f0cc30e844d.png" alt="enter image description here"></a>    </p>
+<p><em>각 고객은 여러 제품을 구매할 수 있지만 구매된 제품의 주인은 오직 한 고객 뿐이다 - one to many</em></p>
+<h3 id="Many-To-Many"><a href="#Many-To-Many" class="headerlink" title="Many To Many"></a>Many To Many</h3><ul>
+<li>테이블 A의 여러 로우가 테이블 B의 여러 로우와 연결이 되는 관계를 many to many 라고 함.</li>
+</ul>
+<p><a href="https://stackoverflow.com/c/wecode/images/s/95098ff4-3316-441b-a8ab-f408369835ff.png" target="_blank" rel="noopener"><img src="https://stackoverflow.com/c/wecode/images/s/95098ff4-3316-441b-a8ab-f408369835ff.png" alt="enter image description here"></a></p>
+<p><em>책은 여러 작가에 의해 쓰일 수 있고 작가들은 여러 책을 쓸 수 있다 - many to many</em></p>
+<h3 id="어떻게-테이블과-테이블을-연결하는가"><a href="#어떻게-테이블과-테이블을-연결하는가" class="headerlink" title="어떻게 테이블과 테이블을 연결하는가?"></a>어떻게 테이블과 테이블을 연결하는가?</h3><ul>
+<li>Foreign key(외부키)라는 개념을 사용하세 주로 연결</li>
+<li>앞서 본 one to one 예에서 user_profiles 테이블의 user_id 컬럼은 users 테이블에 걸려있는 외부 키라고 지정한다.</li>
+<li>즉 데이터베이스에게 user_id의 값은 users 테이블의 id 값이며 그러므로 users 테이블의 id 컬럼에 존재하는 값만 생성될 수 있다.<ul>
+<li>만일 users 테이블에 없는 id 값이 user_id 에 지정되면 에러가 난다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="왜-테이블들을-연결하는가"><a href="#왜-테이블들을-연결하는가" class="headerlink" title="왜 테이블들을 연결하는가?"></a>왜 테이블들을 연결하는가?</h3><ul>
+<li>왜 정보를 여러 테이블에 나누어서 저장하는가?</li>
+<li>앞서 본 one to many의 예에 경우 그냥 하나의 테이블에 고객 정보와 구입한 제품 정보 모두를 저장 하면 안되는가?</li>
+<li>하나의 테이블에 모든 정보를 다 넣으면 동일한 정보들이 불필요하게 중복되어 저장된다.<ul>
+<li>더 많은 디스크를 사용하게 되고</li>
+<li>또한, 잘못된 데이터가 저장 될 가능성이 높아진다.<ul>
+<li>예를 들어, 고객의 아이디는 동일한데 이름이 틀린 로우들이 있다면 어떻게 해야 하는가? 어떤 이름이 정확한건가?</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>여러 테이블에 나누어서 저장한후 필요한 테이블 끼리 연결 시키면 위의 2문제가 사라진다.<ul>
+<li>중복된 데이터를 저장하지 않음으로 디스크를 더 효율적으로 쓰고,</li>
+<li>또한 서로 같은 데이터이지만 부분적으로 틀린 데이터가 생기는 문제가 없어진다.</li>
+<li>이것을 <code>normalization</code>이라고 한다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="ACID-Atomicity-Consistency-Isolation-Durability"><a href="#ACID-Atomicity-Consistency-Isolation-Durability" class="headerlink" title="ACID(Atomicity, Consistency, Isolation, Durability)"></a>ACID(Atomicity, Consistency, Isolation, Durability)</h3><ul>
+<li>원자성, 일관성, 고립성, 지속성</li>
+<li><code>원자성(Atomicity)</code>은 트랜잭션과 관련된 작업들이 부분적으로 실행되다가 중단되지 않는 것을 보장하는 능력이다. 예를 들어, 자금 이체는 성공할 수도 실패할 수도 있지만 보내는 쪽에서 돈을 빼 오는 작업만 성공하고 받는 쪽에 돈을 넣는 작업을 실패해서는 안된다. 원자성은 이와 같이 중간 단계까지 실행되고 실패하는 일이 없도록 하는 것이다.</li>
+<li><code>일관성(Consistency)</code>은 트랜잭션이 실행을 성공적으로 완료하면 언제나 일관성 있는 데이터베이스 상태로 유지하는 것을 의미한다. 무결성 제약이 모든 계좌는 잔고가 있어야 한다면 이를 위반하는 트랜잭션은 중단된다.</li>
+<li><code>고립성(Isolation)</code>은 트랜잭션을 수행 시 다른 트랜잭션의 연산 작업이 끼어들지 못하도록 보장하는 것을 의미한다. 이것은 트랜잭션 밖에 있는 어떤 연산도 중간 단계의 데이터를 볼 수 없음을 의미한다. 은행 관리자는 이체 작업을 하는 도중에 쿼리를 실행하더라도 특정 계좌간 이체하는 양 쪽을 볼 수 없다. 공식적으로 고립성은 트랜잭션 실행내역은 연속적이어야 함을 의미한다. 성능관련 이유로 인해 이 특성은 가장 유연성 있는 제약 조건이다. 자세한 내용은 관련 문서를 참조해야 한다.</li>
+<li><code>지속성(Durability)</code>은 성공적으로 수행된 트랜잭션은 영원히 반영되어야 함을 의미한다. 시스템 문제, DB 일관성 체크 등을 하더라도 유지되어야 함을 의미한다. 전형적으로 모든 트랜잭션은 로그로 남고 시스템 장애 발생 전 상태로 되돌릴 수 있다. 트랜잭션은 로그에 모든 것이 저장된 후에만 commit 상태로 간주될 수 있다.</li>
+</ul>
+<h3 id="트랜잭션-Transaction"><a href="#트랜잭션-Transaction" class="headerlink" title="트랜잭션(Transaction)"></a>트랜잭션(Transaction)</h3><ul>
+<li>ACID를 제공함으로 따라서 트랜잭션(일련의 작업들을 한번에 하나의 unit으로 실행하는것) 기능을 제공하다.<ul>
+<li>트랜잭션은 일련의 작업들이 마치 하나의 작업처럼 취급되어서 모두 다 성공하거나 아니면 모두 다 실패하는걸 이야기 한다. </li>
+<li>Commit &amp; rollback</li>
+</ul>
+</li>
+</ul>
+<h2 id="NoSQL-데이터베이스"><a href="#NoSQL-데이터베이스" class="headerlink" title="NoSQL 데이터베이스"></a>NoSQL 데이터베이스</h2><ul>
+<li>비관계형 타입의 데이터를 저장할때 주로 사용되는 데이터베이스 시스템</li>
+<li>관계형 데이터베이스와 다르게 비관계형 이기 때문에 데이터들을 저장하기 전에 정의 할 필요가 없다.<ul>
+<li>관계형 데이터베이스는 데이터들을 저장하기 전에 어디에 어떻게 저장할것인지를 정의 해야한다.<ul>
+<li>즉 테이블을 정의해야함 (테이블 이름, 테이블과 다른 테이블의 관계, 각 컬럼의 타입 등등)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>MongoDB, Redis, Cassandra 등이 가장 대표적인 NoSQL 데이터 베이스이다.</li>
+</ul>
+<h2 id="SQL-RDBMS-VS-NoSQL"><a href="#SQL-RDBMS-VS-NoSQL" class="headerlink" title="SQL(RDBMS) VS NoSQL"></a>SQL(RDBMS) VS NoSQL</h2><h3 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h3><ul>
+<li>장점: <ul>
+<li>관계형 데이터베이스는 데이터를 더 효율적으로 그리고 체계적으로 저장할 수 있고 관리 할 수 있다.</li>
+<li>미리 저장하는 데이터들의 구조(테이블 스키마)를 정의 함으로 데이터의 완전성이 보장된다. </li>
+<li>트랜잭션(transaction)</li>
+</ul>
+</li>
+<li>단점:<ul>
+<li>테이블을 미리 정의해야 함으로 테이블 구조 변화 등에 덜 유연한다. </li>
+<li>확장성이 쉽지 않다. <ul>
+<li>역시 테이블 구조가 미리 정의 되어 있다보니 단순히 서버를 늘리는것 만으로 확장하기가 쉽지 않고 서버의 성능 자체도 높여야 한다.</li>
+<li>서버를 늘려서 분산 저장 하는것도 쉽지 않다. </li>
+<li>Scale up (서버의 성능을 높이는것)으로 확장성이 됨.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>정형화된 데이터들 그리고 데이터의 완전성이 중요한 데이터들을 저장하는데 유리하다.<ul>
+<li>예) 전자상거래 정보. 은행 계좌 정보, 거래 정보 등등.</li>
+</ul>
+</li>
+</ul>
+<h3 id="NoSQL"><a href="#NoSQL" class="headerlink" title="NoSQL"></a>NoSQL</h3><ul>
+<li>장점:<ul>
+<li>테이터 구조를 미리 정의하지 않아도 됨으로 저장하는 데이터의 구조 변화에 유연하다. </li>
+<li>확장하기가 비교적 쉽다. 그냥 서버 수를 늘리면 됨(scale out)</li>
+<li>확장하기가 쉽고 테이터의 구조도 유연하다 보니 방대한 양의 데이터를 저장하는데 유리하다. </li>
+</ul>
+</li>
+<li>단점:<ul>
+<li>데이터의 완전성이 덜 보장된다.</li>
+<li>트랜잭션이 안되거나 비교적 불안정하다. </li>
+</ul>
+</li>
+<li>주로 비정형화 데이터 그리고 완전성이 상대적으로 덜 유리한 데이터를 저장하는데 유리하다.<ul>
+<li>예) 로그 데이타</li>
+</ul>
+</li>
+</ul>
+</div><div class="article__tags"><a class="article__tags__item" href="/tags/database/">database</a></div><div class="article__author" itemscope itemprop="author" itemtype="https://schema.org/Person"><img class="article__author__image" src="/images/my_photo.png" alt="Drumgrammer"><a class="article__author__link" title="About Drumgrammer" rel="author">Drumgrammer</a><p class="article__author__desc">Learn, Share, Growth!</p><div class="article__author__socials"><a class="article__author__socials__item" href="https://github.com/drum-grammer" title="github" target="_blank"><i class="fa fa-github"></i></a></div><meta itemprop="name" content="Drumgrammer"></div><div class="sharer" id="sharer"><div class="sharer-inner"><div class="sharer__right"><button class="sharer__item" id="sharer-facebook"><i class="fa fa-facebook-official"></i></button><button class="sharer__item" id="sharer-twitter"><i class="fa fa-twitter"></i></button><button class="sharer__item" id="sharer-pinterest"><i class="fa fa-pinterest"></i></button><button class="sharer__item" id="sharer-pocket"><i class="fa fa-get-pocket"></i></button></div></div></div><!-- Disqus Code--><!-- Meta Tags for Structured Data--><meta itemprop="dateModified" content="2019-10-02T06:21:33.112Z"><meta itemprop="articleBody" content="Database 기초 이해 및 설치
+데이터를 저장 및 보존 하는 시스템
+Application에서는 데이터가 메모리 상에서 존재한다. 그리고 메모리에 존재하는 데이터는 보존이 되지 않는다. 해당 애플리케이션이 종료하면 메모리에 있던 데이터들은 다시 읽어 들일 수 없다. 
+그럼으로 데이터를 장기 기간동안 저장 및 보존 하기 위해서 데이터 베이스를..."><meta itemprop="url" content="https://drum-grammer.github.io/2019/08/26/database1/"><meta itemprop="mainEntityOfPage" content="https://drum-grammer.github.io/2019/08/26/database1/"><div itemscope itemtype="https://schema.org/Organization" itemprop="publisher"><meta itemprop="name" content="Tech-Diary"><div itemscope itemprop="logo" itemtype="https://schema.org/ImageObject"><meta itemprop="url" content="https://drum-grammer.github.io/images/logo.png"></div></div><div itemscope itemtype="https://schema.org/ImageObject" itemprop="image"><meta itemprop="contentUrl" content="https://drum-grammer.github.io/images/default.jpg"><meta itemprop="url" content="https://drum-grammer.github.io/images/default.jpg"><meta itemprop="width" content="1280"><meta itemprop="height" content="720"></div></article></div></div></div><footer id="footer"><div class="widgets"><div class="widgets-inner"><!-- Jade doesn't support dynamic inclusion with `each`.--><!-- So, I just hard coded the file names that will be included.--><div class="widgets__item"><h3 class="widgets__item__heading">Categories</h3><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/0-COMPUTER-SCIENCE-FOUNDATION/">0. COMPUTER SCIENCE FOUNDATION</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/1-CODING-FOUNDATION/">1. CODING FOUNDATION</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/1-CODING-FOUNDATION/Framework/">Framework</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/1-CODING-FOUNDATION/Framework/airflow/">airflow</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/1-CODING-FOUNDATION/Framework/django/">django</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/1-CODING-FOUNDATION/Language/">Language</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/1-CODING-FOUNDATION/Language/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/1-CODING-FOUNDATION/Language/python/">python</a><span class="category-list-count">7</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/2-ALGORITHM/">2. ALGORITHM</a><span class="category-list-count">22</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/2-ALGORITHM/Baekjoon-단계별/">Baekjoon (단계별)</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2-ALGORITHM/Baekjoon-분류별/">Baekjoon (분류별)</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2-ALGORITHM/Code-kata/">Code kata</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2-ALGORITHM/programmers/">programmers</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2-ALGORITHM/개념-정리/">개념 정리</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2-ALGORITHM/면접-준비-용/">면접 준비 용</a><span class="category-list-count">10</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/3-응용-분야/">3. 응용 분야</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/3-응용-분야/crawling/">crawling</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/4-GIT-HUB/">4. GIT HUB</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/4-GIT-HUB/응용/">응용</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/5-OPERATE-SYSTEM/">5. OPERATE SYSTEM</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/5-OPERATE-SYSTEM/Linux/">Linux</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/6-DATABASE/">6. DATABASE</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/6-DATABASE/기본-계념/">기본 계념</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Markdaown/">Markdaown</a><span class="category-list-count">1</span></li></ul></div><div class="widgets__item"><h3 class="widgets__item__heading">Tags</h3><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aiohttp/">aiohttp</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/airflow/">airflow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/big-O-표기법/">big O 표기법</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/codekata/">codekata</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/collections/">collections</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/crawling/">crawling</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/">database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-API-automation/">django_API_automation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/greedy-algorithm/">greedy algorithm</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash/">hash</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/if/">if</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-class/">linux class</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/selenium/">selenium</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/split/">split</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/재귀알고리즘/">재귀알고리즘</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/카카오-알고리즘/">카카오 알고리즘</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/카카오-코딩-테스트/">카카오 코딩 테스트</a><span class="tag-list-count">7</span></li></ul></div><div class="widgets__item"><h3 class="widgets__item__heading">Recent posts</h3><ul class="recent-posts"><li class="recent-posts__item"><a href="/3163/03/16/hello-world/">Tech Diary Overview</a></li><li class="recent-posts__item"><a href="/2019/10/02/algorithm-bigO/">big O 표기법 완전 정복</a></li><li class="recent-posts__item"><a href="/2019/10/01/algorithm_lec1-hash3/">알고리즘 문제 - 위장 (hash)</a></li><li class="recent-posts__item"><a href="/2019/10/01/algorithm_lec1-hash2/">알고리즘 문제 - 전화번호 목록(hash)</a></li><li class="recent-posts__item"><a href="/2019/09/30/algorithm_lec1-hash/">알고리즘 문제 - 완주하지 못한 선수(hash)</a></li></ul></div><div class="widgets__item"><h3 class="widgets__item__heading">Tag cloud</h3><div class="tag-cloud"><a href="/tags/Markdown/" style="font-size: 0.75rem;">Markdown</a> <a href="/tags/aiohttp/" style="font-size: 1rem;">aiohttp</a> <a href="/tags/airflow/" style="font-size: 0.75rem;">airflow</a> <a href="/tags/big-O-표기법/" style="font-size: 0.75rem;">big O 표기법</a> <a href="/tags/codekata/" style="font-size: 0.75rem;">codekata</a> <a href="/tags/collections/" style="font-size: 0.75rem;">collections</a> <a href="/tags/crawling/" style="font-size: 0.75rem;">crawling</a> <a href="/tags/database/" style="font-size: 0.75rem;">database</a> <a href="/tags/django-API-automation/" style="font-size: 0.75rem;">django_API_automation</a> <a href="/tags/github/" style="font-size: 0.75rem;">github</a> <a href="/tags/greedy-algorithm/" style="font-size: 1.25rem;">greedy algorithm</a> <a href="/tags/hash/" style="font-size: 1.25rem;">hash</a> <a href="/tags/if/" style="font-size: 0.75rem;">if</a> <a href="/tags/linux-class/" style="font-size: 1.25rem;">linux class</a> <a href="/tags/markdown/" style="font-size: 0.75rem;">markdown</a> <a href="/tags/python/" style="font-size: 1.5rem;">python</a> <a href="/tags/selenium/" style="font-size: 0.75rem;">selenium</a> <a href="/tags/split/" style="font-size: 0.75rem;">split</a> <a href="/tags/재귀알고리즘/" style="font-size: 1rem;">재귀알고리즘</a> <a href="/tags/카카오-알고리즘/" style="font-size: 1.25rem;">카카오 알고리즘</a> <a href="/tags/카카오-코딩-테스트/" style="font-size: 1.5rem;">카카오 코딩 테스트</a></div></div></div></div><p class="copyright"><small>© 2019 Drumgrammer<br>Powered by <a href="https://hexo.io" rel="external" target="_blank">Hexo</a>, Theme by <a href="https://github.com/hyunseob" rel="external" target="_blank">HyunSeob</a></small></p></footer><!--[if lt IE 10]><script src="/js/classList.min.js"></script><![endif]--><script src="/js/index.min.js"></script></body></html>
